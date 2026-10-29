@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wanderly — Your Next Adventure Awaits. Plan trips, customize daily itineraries, track travel budgets, and explore dream destinations worldwide." />
+  <title>Wanderly — Your Next Adventure Awaits</title>
+
+  <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       STICKY NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar" id="topNav">
+    <div class="container navbar-inner">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" aria-label="Wanderly Travel Planner">
+        <div class="brand-icon-box">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </div>
+        <div class="brand-text">Wander<span>ly</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#featured" class="nav-link">Top Destinations</a>
+        <a href="#explorer" class="nav-link">Explore</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#planner" class="nav-link">Trip Planner</a>
+        <a href="#itinerary" class="nav-link">Daily Itinerary</a>
+        <a href="#budget" class="nav-link">Budget Calculator</a>
+        <a href="#my-trips" class="nav-link">
+          My Trips
+          <span class="nav-badge-count" id="navTripsBadge" style="display:none;">0</span>
+        </a>
+      </nav>
+
+      <!-- Nav Actions (Theme Toggle & CTA) -->
+      <div class="nav-actions">
+        <button type="button" class="btn btn-icon theme-toggle-btn" id="themeToggleBtn" title="Toggle dark/light mode" aria-label="Toggle dark mode">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <a href="#planner" class="btn btn-primary btn-sm">Plan a Trip</a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" class="btn btn-icon mobile-toggle-btn" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="svg-icon" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO / HOME SECTION
+       ========================================================================= -->
+  <section class="hero-section" id="home">
+    <div class="container hero-content">
+      <div class="hero-pill">
+        <span>✨ Seamless Smart Travel Planning</span>
+      </div>
+
+      <h1 class="hero-title">
+        Your Next Adventure <span class="gradient-text">Awaits.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Discover new places, plan unforgettable journeys, and make every trip count. Explore curated world destinations, organize daily activities, and master your travel budget.
+      </p>
+
+      <!-- Search & Quick Action Box -->
+      <div class="hero-search-card">
+        <div class="hero-search-inputs">
+          <div class="hero-input-group">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="heroSearchInput" placeholder="Where do you want to explore? (e.g. Bali, Paris, Tokyo...)" />
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" id="heroSearchBtn">Search Places</button>
+          <a href="#planner" class="btn btn-secondary btn-lg">Plan My Trip</a>
+        </div>
+
+        <div class="hero-quick-tags">
+          <span>Popular Moods:</span>
+          <button type="button" class="tag-btn" data-tag="beach">🏖️ Beach Escapes</button>
+          <button type="button" class="tag-btn" data-tag="mountain">🏔️ Scenic Mountains</button>
+          <button type="button" class="tag-btn" data-tag="city">🏙️ Vibrant Cities</button>
+          <button type="button" class="tag-btn" data-tag="nature">🌿 Wild Nature</button>
+        </div>
+      </div>
+
+      <!-- Quick Trust & Feature Stats -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Free & Local Storage</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Day-by-Day</div>
+          <div class="stat-label">Smart Timeline Planner</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Per-Person</div>
+          <div class="stat-label">Live Cost Breakdown</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Offline</div>
+          <div class="stat-label">Safe Browser Storage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FEATURED DESTINATIONS (Bali, Paris, Switzerland, Goa, Tokyo, Kerala)
+       ========================================================================= -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="featured-header-row">
+        <div>
+          <span class="section-badge">Iconic Journeys</span>
+          <h2 class="section-title">Handpicked Featured Escapes</h2>
+          <p class="section-subtitle">Explore 6 of the world's most sought-after destinations with estimated travel budgets and highlights.</p>
+        </div>
+        <a href="#explorer" class="btn btn-outline">Explore All Destinations →</a>
+      </div>
+
+      <!-- Cards Grid (rendered dynamically via JS for Bali, Paris, Swiss Alps, Goa, Tokyo, Kerala) -->
+      <div class="featured-grid" id="featuredDestinationsGrid">
+        <!-- Injected by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HOW IT WORKS SECTION
+       ========================================================================= -->
+  <section class="section" id="how-it-works" style="background: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Simple 4-Step Process</span>
+        <h2 class="section-title">How Wanderly Works</h2>
+        <p class="section-subtitle">Plan effortlessly from inspiration to departure without complicated tools or subscriptions.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <div class="step-icon-box">
+            <svg class="svg-icon svg-icon-lg" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+          </div>
+          <h3 class="step-title">Explore & Favorite</h3>
+          <p class="step-desc">Browse world-class destinations filtered by beach, mountains, cities, or nature and save your dream wishlist.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <div class="step-icon-box">
+            <svg class="svg-icon svg-icon-lg" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="step-title">Set Dates & Travellers</h3>
+          <p class="step-desc">Choose departure and return dates with automatic duration calculation and custom budget allocations.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <div class="step-icon-box">
+            <svg class="svg-icon svg-icon-lg" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3 class="step-title">Build Daily Itinerary</h3>
+          <p class="step-desc">Schedule activities, tours, and food stops day-by-day with timestamps, tags, and personal notes.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <div class="step-icon-box">
+            <svg class="svg-icon svg-icon-lg" viewBox="0 0 24 24">
+              <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/>
+              <path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/>
+              <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/>
+            </svg>
+          </div>
+          <h3 class="step-title">Track & Balance Budget</h3>
+          <p class="step-desc">Monitor per-person spending across transport, stay, food, and activities to stay safely within your limits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       DESTINATION EXPLORER
+       ========================================================================= -->
+  <section class="section" id="explorer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Find Your Match</span>
+        <h2 class="section-title">Destination Explorer</h2>
+        <p class="section-subtitle">Search by city or country, filter by experience category, and inspect detailed trip itineraries.</p>
+      </div>
+
+      <!-- Explorer Controls -->
+      <div class="explorer-controls">
+        <div class="controls-top-row">
+          <div class="search-input-box">
+            <svg class="svg-icon" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="explorerSearchInput" placeholder="Search destinations by name or country..." />
+          </div>
+
+          <div class="sort-select-box">
+            <label for="explorerSortSelect" style="font-size: 0.8rem; font-weight:700; color:var(--text-muted);">SORT:</label>
+            <select id="explorerSortSelect">
+              <option value="featured">Featured Picks</option>
+              <option value="price-low">Budget: Low to High</option>
+              <option value="price-high">Budget: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-chips-row">
+          <span class="filter-label">Filter Category:</span>
+          <button type="button" class="chip-btn active" data-filter="all">All Places</button>
+          <button type="button" class="chip-btn" data-filter="beach">🏖️ Beach</button>
+          <button type="button" class="chip-btn" data-filter="mountain">🏔️ Mountains</button>
+          <button type="button" class="chip-btn" data-filter="city">🏙️ City</button>
+          <button type="button" class="chip-btn" data-filter="nature">🌿 Nature</button>
+          <span id="explorerResultCount" style="margin-left: auto; font-size: 0.85rem; color: var(--text-muted); font-weight: 600;"></span>
+        </div>
+      </div>
+
+      <!-- Explorer Grid -->
+      <div class="explorer-grid" id="explorerDestinationsGrid">
+        <!-- Rendered dynamically via script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       TRIP PLANNER SECTION
+       ========================================================================= -->
+  <section class="section" id="planner" style="background: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Custom Trip Builder</span>
+        <h2 class="section-title">Plan Your Custom Journey</h2>
+        <p class="section-subtitle">Set your dates, group size, and budget. Our smart planner validates your schedule and automatically computes durations.</p>
+      </div>
+
+      <div class="planner-grid-layout">
+        <!-- Trip Creation Form Card -->
+        <div class="planner-form-card">
+          <form id="plannerForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="plannerTripName">
+                Trip Name *
+                <small>Give your adventure an inspiring title</small>
+              </label>
+              <input type="text" id="plannerTripName" class="form-input" placeholder="e.g. Summer in Switzerland, Bali Tropical Escape" required />
+            </div>
+
+            <div class="form-group-grid">
+              <div class="form-group">
+                <label class="form-label" for="plannerDestination">Destination *</label>
+                <select id="plannerDestination" class="form-select" required>
+                  <option value="">Select Destination...</option>
+                  <option value="Bali, Indonesia">Bali, Indonesia</option>
+                  <option value="Paris, France">Paris, France</option>
+                  <option value="Swiss Alps, Switzerland">Swiss Alps, Switzerland</option>
+                  <option value="Goa, India">Goa, India</option>
+                  <option value="Tokyo, Japan">Tokyo, Japan</option>
+                  <option value="Kerala, India">Kerala, India</option>
+                  <option value="Santorini, Greece">Santorini, Greece</option>
+                  <option value="Banff & Rockies, Canada">Banff & Rockies, Canada</option>
+                  <option value="Kyoto, Japan">Kyoto, Japan</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="plannerTravellers">Number of Travellers *</label>
+                <input type="number" id="plannerTravellers" class="form-input" min="1" max="50" value="2" required />
+              </div>
+            </div>
+
+            <div class="form-group-grid">
+              <div class="form-group">
+                <label class="form-label" for="plannerStartDate">Start Date (Departure) *</label>
+                <input type="date" id="plannerStartDate" class="form-input" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="plannerEndDate">End Date (Return) *</label>
+                <input type="date" id="plannerEndDate" class="form-input" required />
+                <span class="form-error-msg" id="dateValidationMsg">End date cannot be earlier than start date.</span>
+              </div>
+            </div>
+
+            <div class="form-group-grid">
+              <div class="form-group">
+                <label class="form-label" for="plannerBudget">Total Estimated Budget (USD $) *</label>
+                <input type="number" id="plannerBudget" class="form-input" min="50" step="50" placeholder="e.g. 2500" value="2200" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="plannerStyle">Travel Style / Pace</label>
+                <select id="plannerStyle" class="form-select">
+                  <option value="balanced">Balanced & Relaxed</option>
+                  <option value="fast">Fast-Paced Explorer</option>
+                  <option value="luxury">Luxury & Leisure</option>
+                  <option value="backpack">Backpacking / Budget</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="plannerNotes">Trip Notes / Special Wishes</label>
+              <textarea id="plannerNotes" class="form-textarea" rows="2" placeholder="e.g. Include local cooking classes, sunrise photo points, beach villas..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 0.5rem;">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              Save Trip & Open Daily Itinerary
+            </button>
+          </form>
+        </div>
+
+        <!-- Dynamic Live Summary Card -->
+        <div class="planner-preview-card">
+          <div class="preview-header">
+            <div>
+              <span class="preview-badge">Live Plan Preview</span>
+              <h3 class="preview-trip-title" id="previewTripTitle">Bali Island Adventure</h3>
+              <div class="preview-destination" id="previewDestinationText">📍 Bali, Indonesia</div>
+            </div>
+          </div>
+
+          <div class="preview-stats-grid">
+            <div class="preview-stat-box">
+              <span class="preview-stat-label">
+                <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Duration
+              </span>
+              <div class="preview-stat-val" id="previewDuration">7 Days / 6 Nights</div>
+            </div>
+
+            <div class="preview-stat-box">
+              <span class="preview-stat-label">
+                <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Group Size
+              </span>
+              <div class="preview-stat-val" id="previewTravellers">2 Travellers</div>
+            </div>
+
+            <div class="preview-stat-box">
+              <span class="preview-stat-label">
+                <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Total Budget
+              </span>
+              <div class="preview-stat-val" id="previewBudget">$2,200</div>
+            </div>
+
+            <div class="preview-stat-box">
+              <span class="preview-stat-label">
+                <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Daily Allowance
+              </span>
+              <div class="preview-stat-val" id="previewDailyAllowance">~$314/day</div>
+            </div>
+          </div>
+
+          <div class="preview-notes-box">
+            💡 <strong>Smart Sync:</strong> When you save this plan, Wanderly automatically initializes a day-by-day itinerary schedule and pre-populates category budget allocations for your trip.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       DAILY ITINERARY SECTION
+       ========================================================================= -->
+  <section class="section" id="itinerary">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Timeline Builder</span>
+        <h2 class="section-title">Daily Itinerary Timeline</h2>
+        <p class="section-subtitle">Organize your stops, excursions, dining, and transit chronologically for each day of your journey.</p>
+      </div>
+
+      <div class="itinerary-layout">
+        <!-- Active Trip Banner & Switcher -->
+        <div class="itinerary-active-banner" id="itineraryTripBanner">
+          <!-- Dynamically populated by script.js -->
+        </div>
+
+        <!-- Day Filter Tabs (All Days, Day 1, Day 2...) -->
+        <div class="itinerary-day-tabs" id="itineraryDayTabs">
+          <!-- Dynamically populated by script.js -->
+        </div>
+
+        <!-- Chronological Timeline Display -->
+        <div class="timeline-container" id="itineraryTimeline">
+          <!-- Dynamically populated by script.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       BUDGET CALCULATOR SECTION
+       ========================================================================= -->
+  <section class="section" id="budget" style="background: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Spend Smart</span>
+        <h2 class="section-title">Trip Budget Calculator</h2>
+        <p class="section-subtitle">Keep your spending in check. Compare estimated expenses across key categories with instant per-person calculations.</p>
+      </div>
+
+      <div class="budget-dashboard">
+        <!-- Trip Meta Banner -->
+        <div id="budgetActiveTripBanner" style="display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; color: var(--text-main); padding: 0.75rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <!-- Injected via script.js -->
+        </div>
+
+        <!-- Key Financial Metric Cards -->
+        <div class="budget-stats-cards">
+          <div class="budget-stat-card">
+            <div class="budget-stat-header">
+              <span>Allocated Budget</span>
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="budget-stat-val" id="budgetTotalTripVal">$0</div>
+            <div class="budget-stat-sub">Target maximum budget</div>
+          </div>
+
+          <div class="budget-stat-card">
+            <div class="budget-stat-header">
+              <span>Total Estimated Cost</span>
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
+            </div>
+            <div class="budget-stat-val" id="budgetTotalCostVal">$0</div>
+            <div class="budget-stat-sub">Sum of all planned categories</div>
+          </div>
+
+          <div class="budget-stat-card">
+            <div class="budget-stat-header">
+              <span>Per-Person Cost</span>
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div class="budget-stat-val" id="budgetPerPersonVal">$0</div>
+            <div class="budget-stat-sub">Cost per individual traveller</div>
+          </div>
+
+          <div class="budget-stat-card">
+            <div class="budget-stat-header">
+              <span>Remaining Balance</span>
+              <span id="budgetStatusPill" class="status-pill status-within">● Within Budget</span>
+            </div>
+            <div class="budget-stat-val" id="budgetRemainingVal">$0</div>
+            <div class="budget-stat-sub" id="budgetRemainingSub">Under allocated budget</div>
+          </div>
+        </div>
+
+        <!-- Overall Budget Progress Bar Card -->
+        <div class="budget-meter-card">
+          <div class="meter-header">
+            <div class="meter-title">Budget Utilization Health</div>
+            <div class="meter-pct" id="budgetProgressPct">0% Spent</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar bar-within" id="budgetProgressBar" style="width: 0%;"></div>
+          </div>
+          <div class="meter-labels">
+            <span>$0</span>
+            <span style="font-style: italic;">*Estimated travel costs, not live booking rates</span>
+            <span id="budgetMeterMaxLabel">Target Budget</span>
+          </div>
+        </div>
+
+        <!-- Budget Category Inputs & Breakdown -->
+        <div class="budget-details-grid">
+          <!-- Category Inputs Card -->
+          <div class="budget-inputs-card">
+            <div class="card-inner-header">
+              <h3>Expense Category Allocations</h3>
+              <div style="display:flex; gap:0.4rem;">
+                <button type="button" class="btn btn-outline btn-sm" onclick="autoEstimateBudget()">Auto Proportions</button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="resetBudgetEstimates()">Reset</button>
+              </div>
+            </div>
+
+            <!-- Transport -->
+            <div class="category-input-row">
+              <div class="cat-info">
+                <div class="cat-icon-badge cat-transport">✈️</div>
+                <div>
+                  <div class="cat-title-text">Transport & Flights</div>
+                  <small style="color: var(--text-subtle);">Flights, trains, ferries, rental cars</small>
+                </div>
+              </div>
+              <div class="cat-input-wrap">
+                <span class="cat-currency">$</span>
+                <input type="number" id="costTransport" min="0" step="10" placeholder="0" />
+              </div>
+            </div>
+
+            <!-- Accommodation -->
+            <div class="category-input-row">
+              <div class="cat-info">
+                <div class="cat-icon-badge cat-stay">🏨</div>
+                <div>
+                  <div class="cat-title-text">Accommodation</div>
+                  <small style="color: var(--text-subtle);">Hotels, villas, resorts, Airbnbs</small>
+                </div>
+              </div>
+              <div class="cat-input-wrap">
+                <span class="cat-currency">$</span>
+                <input type="number" id="costStay" min="0" step="10" placeholder="0" />
+              </div>
+            </div>
+
+            <!-- Food & Dining -->
+            <div class="category-input-row">
+              <div class="cat-info">
+                <div class="cat-icon-badge cat-food">🍽️</div>
+                <div>
+                  <div class="cat-title-text">Food & Dining</div>
+                  <small style="color: var(--text-subtle);">Restaurants, cafes, street food, drinks</small>
+                </div>
+              </div>
+              <div class="cat-input-wrap">
+                <span class="cat-currency">$</span>
+                <input type="number" id="costFood" min="0" step="10" placeholder="0" />
+              </div>
+            </div>
+
+            <!-- Activities -->
+            <div class="category-input-row">
+              <div class="cat-info">
+                <div class="cat-icon-badge cat-activities">🎟️</div>
+                <div>
+                  <div class="cat-title-text">Activities & Excursions</div>
+                  <small style="color: var(--text-subtle);">Entry tickets, guided tours, diving, gear</small>
+                </div>
+              </div>
+              <div class="cat-input-wrap">
+                <span class="cat-currency">$</span>
+                <input type="number" id="costActivities" min="0" step="10" placeholder="0" />
+              </div>
+            </div>
+
+            <!-- Miscellaneous -->
+            <div class="category-input-row">
+              <div class="cat-info">
+                <div class="cat-icon-badge cat-misc">🛍️</div>
+                <div>
+                  <div class="cat-title-text">Shopping & Contingency</div>
+                  <small style="color: var(--text-subtle);">Souvenirs, SIM cards, emergency fund</small>
+                </div>
+              </div>
+              <div class="cat-input-wrap">
+                <span class="cat-currency">$</span>
+                <input type="number" id="costMisc" min="0" step="10" placeholder="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Breakdown Visualizer -->
+          <div class="budget-breakdown-card">
+            <div class="card-inner-header">
+              <h3>Category Breakdown</h3>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Proportional share</span>
+            </div>
+
+            <div class="category-bars-list" id="budgetBreakdownBars">
+              <!-- Dynamically populated by script.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       MY TRIPS & DREAM WISHLIST SECTION
+       ========================================================================= -->
+  <section class="section" id="my-trips">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Your Travel Dashboard</span>
+        <h2 class="section-title">My Trips & Dream Destinations</h2>
+        <p class="section-subtitle">Manage all your saved journeys and keep track of your bucket-list wishlist in one clean dashboard.</p>
+      </div>
+
+      <!-- Section Switcher Tabs -->
+      <div class="trips-tabs-bar">
+        <button type="button" class="trip-tab-btn active" id="tabBtnSavedTrips" onclick="switchTripsSubTab('saved')">
+          Saved Trips (<span id="savedTripsCountBadge">0</span>)
+        </button>
+        <button type="button" class="trip-tab-btn" id="tabBtnWishlist" onclick="switchTripsSubTab('wishlist')">
+          Dream Wishlist (<span id="wishlistCountBadge">0</span>)
+        </button>
+      </div>
+
+      <!-- Saved Trips Grid -->
+      <div class="saved-trips-grid" id="savedTripsView">
+        <!-- Injected via script.js -->
+      </div>
+
+      <!-- Dream Wishlist Grid -->
+      <div class="explorer-grid" id="wishlistTripsView" style="display: none;">
+        <!-- Injected via script.js -->
+      </div>
+
+      <!-- Local Storage Notice Banner -->
+      <div class="storage-notice-banner">
+        <div class="storage-notice-text">
+          <svg class="svg-icon svg-icon-lg" style="color: var(--primary-600);" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <div>
+            <strong>Private & Secure in Browser:</strong> All trip plans, itineraries, budget records, and favorite destinations are stored exclusively in your local browser storage (localStorage). Your data remains safe on this device and is not sent to external servers or synced across other machines.
+          </div>
+        </div>
+
+        <div class="storage-actions">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="restoreDemoData()">Restore Sample Data</button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="resetAllUserData()">Clear All Data</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       MODAL 1: DESTINATION DETAILS MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="destinationModal" role="dialog" aria-modal="true" aria-labelledby="modalDestTitle">
+    <div class="modal-box">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <img src="" alt="" class="modal-hero-img" id="modalDestImg" />
+
+      <div class="modal-body">
+        <div class="modal-header-meta">
+          <span class="category-tag category-beach" id="modalDestType">BEACH</span>
+          <span style="font-size: 0.88rem; font-weight: 600; color: var(--primary-600);" id="modalDestCountry">Indonesia</span>
+        </div>
+
+        <h3 class="modal-title" id="modalDestTitle">Bali, Indonesia</h3>
+        <p class="modal-desc" id="modalDestDesc"></p>
+
+        <div class="modal-highlights-grid">
+          <div class="highlight-item">
+            <div class="highlight-item-label">Best Time To Visit</div>
+            <div class="highlight-item-val" id="modalDestSeason">April – October</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-item-label">Recommended Duration</div>
+            <div class="highlight-item-val" id="modalDestDays">7 Days</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-item-label">Estimated Trip Cost</div>
+            <div class="highlight-item-val" id="modalDestCostUSD">$750 / ₹62,000</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-item-label">Average Daily Spend</div>
+            <div class="highlight-item-val" id="modalDestDaily">~$90/day</div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Key Attractions & Highlights</h4>
+        <ul id="modalDestHighlights" style="list-style: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+        </ul>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeDestinationModal()">Close</button>
+          <button type="button" class="btn btn-primary btn-sm" id="modalPlanBtn">Plan a Trip Here</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: ADD ACTIVITY MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="activityModal" role="dialog" aria-modal="true" aria-labelledby="activityModalTitle">
+    <div class="modal-box" style="max-width: 520px;">
+      <button type="button" class="modal-close-btn" id="actModalCloseBtn" aria-label="Close modal">
+        <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div class="modal-body" style="padding: 2rem;">
+        <h3 id="activityModalTitle" style="font-size: 1.4rem; margin-bottom: 0.4rem;">Add Itinerary Activity</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Schedule a sightseeing stop, restaurant, transit, or tour.</p>
+
+        <form id="activityForm">
+          <div class="form-group">
+            <label class="form-label" for="activityTitleInput">Activity Title *</label>
+            <input type="text" id="activityTitleInput" class="form-input" placeholder="e.g. Sunrise Volcano Hike, Louvre Guided Tour" required />
+          </div>
+
+          <div class="form-group-grid">
+            <div class="form-group">
+              <label class="form-label" for="activityDaySelect">Select Day *</label>
+              <select id="activityDaySelect" class="form-select" required>
+                <!-- Filled dynamically by script.js -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="activityTimeInput">Scheduled Time</label>
+              <input type="time" id="activityTimeInput" class="form-input" value="10:00" />
+            </div>
+          </div>
+
+          <div class="form-group-grid">
+            <div class="form-group">
+              <label class="form-label" for="activityCategorySelect">Category</label>
+              <select id="activityCategorySelect" class="form-select">
+                <option value="Sightseeing">Sightseeing</option>
+                <option value="Food">Food & Dining</option>
+                <option value="Adventure">Adventure & Sports</option>
+                <option value="Culture">Culture & History</option>
+                <option value="Relaxation">Relaxation & Spa</option>
+                <option value="Transit">Transit & Flight</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="activityCostInput">Estimated Cost (USD $)</label>
+              <input type="number" id="activityCostInput" class="form-input" min="0" step="5" placeholder="0" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="activityNotesInput">Helpful Notes & Tips</label>
+            <textarea id="activityNotesInput" class="form-textarea" rows="2" placeholder="e.g. Pre-booked tickets, remember sunblock and water"></textarea>
+          </div>
+
+          <div class="modal-footer" style="margin-top: 1.5rem;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="closeAddActivityModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Add to Timeline</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       TOAST NOTIFICATION CONTAINER
+       ========================================================================= -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo">
+            <div class="brand-icon-box">
+              <svg class="svg-icon" viewBox="0 0 24 24">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </div>
+            <div class="brand-text">Wander<span>ly</span></div>
+          </a>
+          <p class="footer-desc">
+            Your modern companion for stress-free travel planning. Explore breathtaking world destinations, design customized daily itineraries, and calculate realistic travel budgets effortlessly.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Explore</h4>
+          <ul class="footer-links-list">
+            <li><a href="#featured">Featured Escapes</a></li>
+            <li><a href="#explorer">All Destinations</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#my-trips">Dream Wishlist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Trip Tools</h4>
+          <ul class="footer-links-list">
+            <li><a href="#planner">Custom Trip Planner</a></li>
+            <li><a href="#itinerary">Daily Itinerary Timeline</a></li>
+            <li><a href="#budget">Budget Health Calculator</a></li>
+            <li><a href="#my-trips">Saved Trips Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-notice-col">
+          <h4>Travel Disclaimers</h4>
+          <div class="footer-notice-box">
+            <strong>*Curated Estimates Notice:</strong> All budget figures, costs, and pricing presented on Wanderly are curated seasonal travel estimates designed to help you plan realistic budgets. Wanderly does not execute live bookings or charge payments.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Wanderly. Designed with clean HTML5, CSS3, and Vanilla JavaScript. Local & Private.</div>
+        <div>
+          <a href="#home" style="color: var(--navy-400); margin-left: 1rem;">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
+
