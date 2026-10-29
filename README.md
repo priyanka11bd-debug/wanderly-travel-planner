@@ -1,1 +1,1 @@
-# wanderly-travel-planner.
+# wanderly-travel-planner
